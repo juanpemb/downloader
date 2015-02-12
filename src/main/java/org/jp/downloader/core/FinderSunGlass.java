@@ -1,6 +1,6 @@
 package org.jp.downloader.core;
 
-import org.jp.downloader.port.secondary.DriverDealExtreme;
+import org.jp.downloader.infra.jsoup.DriverDealExtreme;
 
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class FinderSunGlass {
 
     public SunGlassCatalog retrieveSunGlass(String path) {
 
-        DriverDealExtreme driver = new DriverDealExtreme(path);
-        List<SunGlass> catalogFromDriver = driver.obtainSunGlass();
+        DriverDealExtreme driver = new DriverDealExtreme();
+        List<SunGlass> catalogFromDriver = driver.obtainSunGlass(path);
 
         return adapt(catalogFromDriver);
     }
