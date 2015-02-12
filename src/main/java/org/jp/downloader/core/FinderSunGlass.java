@@ -2,14 +2,11 @@ package org.jp.downloader.core;
 
 import org.jp.downloader.port.secondary.DriverDealExtreme;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class FinderSunGlass {
 
     public static String PATH = "http://www.dx.com/es/s/gafas%2bde%2bsol?category=1244&PageIndex=1#sortBar";
-
-    private List<SunGlass> sunGlasses = new ArrayList<SunGlass>();
 
 
     public SunGlassCatalog retrieveSunGlass(String path) {
@@ -30,9 +27,10 @@ public class FinderSunGlass {
                     sunGlass.getReviews(),
                     sunGlass.getDescriptions(),
                     sunGlass.getDetails(),
-                    sunGlass.getPrice());
+                    sunGlass.getPrice(),
+                    sunGlass.getUrl());
 
-            catalog.add(sunGlass);
+            catalog.add(copySunGlass);
         }
 
         return catalog;
